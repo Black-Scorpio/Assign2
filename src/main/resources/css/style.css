@@ -1,0 +1,11 @@
+.root {
+    -fx-background-image: url("../images/looney-wallpaper.png");
+    -fx-background-size: contain;
+}
+
+#header {
+    -fx-font-size: 26px;
+    -fx-font-family: "Bell MT";
+    -fx-text-fill: white;
+}
+
