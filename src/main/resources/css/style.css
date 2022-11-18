@@ -4,8 +4,20 @@
 }
 
 #header {
-    -fx-font-size: 26px;
+    -fx-font-size: 30px;
     -fx-font-family: "Bell MT";
     -fx-text-fill: white;
 }
 
+#setup {
+    -fx-font-size: 24px;
+    -fx-font-family: "Bell MT";
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-font-size: 20px;
+    -fx-font-family: "Bell MT";
+    -fx-border: none;
+    -fx-background-radius: 15px;
+}
