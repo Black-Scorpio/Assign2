@@ -21,7 +21,7 @@
          <bottom>
             <VBox alignment="CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="Punchline" />
+                  <Button fx:id="punchlineBtn" mnemonicParsing="false" text="Punchline" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -29,7 +29,11 @@
             </VBox>
          </bottom>
          <center>
-            <Label id="setup" text="Setup" BorderPane.alignment="CENTER" />
+            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <Label id="setup" fx:id="setupLbl" alignment="CENTER_RIGHT" text="Setup" />
+               </children>
+            </VBox>
          </center>
       </BorderPane>
    </children>
