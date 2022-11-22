@@ -1,5 +1,6 @@
 package com.example.comp1011ass2;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -21,6 +22,8 @@ public class JokeViewController implements Initializable {
     @FXML
     private Label titleLbl;
 
+    private JokeResponse jokeResponse;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         JokeResponse joke = createJokeObject();
@@ -31,6 +34,10 @@ public class JokeViewController implements Initializable {
 
     }
 
+    public JokeResponse getJokeResponse(){
+        return this.jokeResponse;
+    }
+
     private JokeResponse createJokeObject(){
         try {
             JSONObject jObject = new JSONObject(APIUtility.getJsonString());
@@ -38,11 +45,15 @@ public class JokeViewController implements Initializable {
             String type = jObject.getString("type");
             String setup = jObject.getString("setup");
             String punchline = jObject.getString("punchline");
-            return new JokeResponse(id,type,setup,punchline);
+            jokeResponse = new JokeResponse(id,type,setup,punchline);
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-        return null;
+        return jokeResponse;
+    }
+    @FXML
+    private void switchToPunchlineView(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event,"punchline-view.fxml");
     }
 }

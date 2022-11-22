@@ -18,7 +18,7 @@ public class APIUtility {
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
+        HttpResponse<Path> jokeFile = client.send(request, HttpResponse.BodyHandlers.ofFile(Paths.get("jokeInfo.json")));
         return response.body();
     }
 }

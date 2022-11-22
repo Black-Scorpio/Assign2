@@ -1,10 +1,15 @@
 package com.example.comp1011ass2;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +26,25 @@ public class PunchlineController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        punchlineTitleLbl.setText("\uD83D\uDE02 \uD83D\uDE02");
+
 
     }
+
+
+    @FXML
+    void switchToJokeView(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event,"joke-view.fxml");
+        getDataFromJokeViewController();
+    }
+
+
+    public void getDataFromJokeViewController() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("joke-view.fxml"));
+        JokeViewController controller = loader.getController();
+        punchlineLbl.setText(controller.getJokeResponse().getPunchline());
+    }
+
+
 }
