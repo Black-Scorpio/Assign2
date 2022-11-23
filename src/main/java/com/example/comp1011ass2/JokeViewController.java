@@ -52,8 +52,9 @@ public class JokeViewController implements Initializable {
         }
         return jokeResponse;
     }
+
     @FXML
     private void switchToPunchlineView(ActionEvent event) throws IOException {
-        SceneChanger.changeScenes(event,"punchline-view.fxml");
+        SceneChanger.changeScenes(event,"punchline-view.fxml", jokeResponse.getPunchline());
     }
 }

@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
     @Override
@@ -14,7 +15,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("joke-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Random Jokes");
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/images/clown.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("/images/clown.png"))));
         stage.setScene(scene);
         stage.show();
     }
