@@ -28,15 +28,12 @@ public class JokeViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         JokeResponse joke = createJokeObject();
         titleLbl.setText("Here's a Joke!");
-        assert joke != null; // asserting that the joke is not null in the JSON response
+        assert joke != null; // asserting that the joke object is not null for the JSON response
         setupLbl.setText(joke.getSetup());
 
 
     }
 
-    public JokeResponse getJokeResponse(){
-        return this.jokeResponse;
-    }
 
     private JokeResponse createJokeObject(){
         try {
